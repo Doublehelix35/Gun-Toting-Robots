@@ -95,4 +95,19 @@ public class Creator : MonoBehaviour {
             }
         }
     }
+
+    bool CheckGridObjectHasParts()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if (GridObjects[i, j].tag == "Part")
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
