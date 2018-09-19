@@ -97,6 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fdefe8eeb1d5f42a0af92a1d462d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partType: 1
+  BulletPrefab: {fileID: 0}
+  Health: 5
+  Attack: 1
+  ShootCooldown: 1
+  BulletSpeed: 1
 --- !u!212 &212661815534966864
 SpriteRenderer:
   m_ObjectHideFlags: 1
