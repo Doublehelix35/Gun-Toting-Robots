@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class UI_Parts : MonoBehaviour {
+public class UI_Parts : MonoBehaviour, IPointerClickHandler
+{
 
+    public GameObject CreatorRef;
     public GameObject PrefabToSpawn;
 
 	// Use this for initialization
@@ -14,18 +17,17 @@ public class UI_Parts : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.Mouse0)) // Left mouse click
-        {
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 MousePos = new Vector2(pos.x, pos.y);
+        
+    }
 
-            var Click = Physics2D.OverlapPoint(MousePos);
-
-            if (Click && Click.transform == transform) // If clicked then show game object
-            {
-                Instantiate(PrefabToSpawn, new Vector3(MousePos.x, MousePos.y, 0), Quaternion.identity);
-            }
-        }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 MousePos = new Vector2(pos.x, pos.y);
+        
+        GameObject GO = Instantiate(PrefabToSpawn, new Vector3(MousePos.x, MousePos.y, 0), Quaternion.identity);
+        CreatorRef.GetComponent<Creator>().PartSpawned(GO);
+            
     }
 
 }
