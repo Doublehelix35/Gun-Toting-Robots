@@ -10,7 +10,7 @@ public class Part : MonoBehaviour {
 
     // Stats
     public float Health = 5f;
-    float CurrentHealth;
+    internal float CurrentHealth;
     public float Attack = 1f;
     //public float SpeedBoost = 0f;
     public float ShootCooldown = 1f;
