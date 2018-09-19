@@ -7,6 +7,7 @@ public class Part : MonoBehaviour {
     public enum PartTypes {Armour, Gun};
     public PartTypes partType;
     public GameObject BulletPrefab;
+    private GameObject PlayerRef;
 
     // Stats
     public float Health = 5f;
@@ -22,6 +23,7 @@ public class Part : MonoBehaviour {
         // Init Values
         CurrentHealth = Health;
         LastShootTime = Time.time;
+        PlayerRef = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	void Update ()
@@ -42,13 +44,15 @@ public class Part : MonoBehaviour {
     {
         CurrentHealth -= damageToTake;
 
-        if(CurrentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             // Message player script
+            PlayerRef.GetComponent<Player>().RemovePart(gameObject);
 
             // Destroy part
             Destroy(gameObject);
         }
+        
     }
 
     public void ShootGun()

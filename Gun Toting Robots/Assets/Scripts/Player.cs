@@ -10,15 +10,18 @@ public class Player : MonoBehaviour {
     // Stats
     public float Speed = 1f;
     float BaseSpeed = 20f;
+    float TurnSpeed = 1f;
     float MaxHealth;
+    float CurrentHealth;
 
     // Upgrade stats
 
 
 	void Start ()
     {
-        // Get max health
+        // Get max health and init current health
         MaxHealth = CalculateMaxHealth();
+        CurrentHealth = MaxHealth;
 
         // Init part objects
 		PartObjects = new GameObject[10, 10];
@@ -41,6 +44,11 @@ public class Player : MonoBehaviour {
 		// Input
 
 	}
+    void FixedUpdate()
+    {
+        // Update current health
+        UpdateCurrentHealth();
+    }
 
     void FireGuns()
     {
@@ -58,7 +66,18 @@ public class Player : MonoBehaviour {
 
     public void UpdateCurrentHealth()
     {
-
+        float currentHealth = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if (PartObjects[i, j].GetComponent<Part>().partType == Part.PartTypes.Armour)
+                {
+                    currentHealth += PartObjects[i, j].GetComponent<Part>().CurrentHealth;
+                }
+            }
+        }
+        CurrentHealth = currentHealth;
     }
 
     float CalculateMaxHealth()
