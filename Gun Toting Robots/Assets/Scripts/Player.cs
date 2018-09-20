@@ -117,6 +117,7 @@ public class Player : MonoBehaviour {
         CurrentHealth = currentHealth;
         GameManagerRef.GetComponent<GameManager>().UpdateHealthUI(Mathf.Floor(CurrentHealth) + " / " + MaxHealth);
 
+        // Check if player is dead
         if(CurrentHealth <= 0)
         {
             GameManagerRef.GetComponent<GameManager>().GameOver();
