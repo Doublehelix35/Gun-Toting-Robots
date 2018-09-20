@@ -60,12 +60,17 @@ public class MainMenu : MonoBehaviour {
 
     public void CreditsButton()
     {
-
+        SceneManager.LoadScene("Credits");
     }
 
     public void ExitButton()
     {
         Application.Quit();
+    }
+
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void ResetSave()
