@@ -9,9 +9,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public GameObject PlayerRef;
+    List<GameObject> EnemyList = new List<GameObject>();
     public Text GoldUI;
     public Text NameUI;
     public Text HealthUI;
+    public Text EnemyUI;
 
     // Values to be saved
     public int Gold = 14;
@@ -22,11 +24,10 @@ public class GameManager : MonoBehaviour {
         // Load data
         Load();
 
-        // Update gold ui text
+        // Update ui text
         GoldUI.text = "" + Gold;
-
-        // Update name ui text
         NameUI.text = RobotName;
+        EnemyUI.text = "" + 0;
 
     }
 	
@@ -66,6 +67,24 @@ public class GameManager : MonoBehaviour {
     public void UpdateHealthUI(string newUIText)
     {
         HealthUI.text = newUIText;
+    }
+
+    public void AddEnemyToList(GameObject EnemyToAdd)
+    {
+        if (!EnemyList.Contains(EnemyToAdd))
+        {
+            EnemyList.Add(EnemyToAdd);
+            EnemyUI.text = EnemyList.Count.ToString();
+        }
+    }
+
+    public void RemoveEnemyFromList(GameObject EnemyToRemove)
+    {
+        if (EnemyList.Contains(EnemyToRemove))
+        {
+            EnemyList.Remove(EnemyToRemove);
+            EnemyUI.text = EnemyList.Count.ToString();
+        }
     }
 
     // Saving

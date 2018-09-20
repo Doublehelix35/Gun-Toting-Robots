@@ -18,4 +18,9 @@ public class Bullet : MonoBehaviour {
     {
         GetComponent<Rigidbody2D>().AddForce(transform.up * Speed * BaseSpeed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        Destroy(gameObject, 0.0001f);
+    }
 }

@@ -11,13 +11,14 @@ public class Enemy : MonoBehaviour {
     float CurrentHealth = 5f;
     public float Attack = 1f;
     public float Speed = 1f;
-    float BaseSpeed = 100f;
+    float BaseSpeed = 50f;
     public float ShootCooldown;
     public float BulletSpeed;
 
     float LastShootTime;
 
     GameObject PlayerRef;
+    GameObject GameManagerRef;
 
 	void Start ()
     {
@@ -28,12 +29,50 @@ public class Enemy : MonoBehaviour {
         CurrentHealth = Health;
         LastShootTime = Time.time;
         PlayerRef = GameObject.FindGameObjectWithTag("Player");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        GameManagerRef = GameObject.FindGameObjectWithTag("GameController");
+
+        // Add this gameobject to enemy list
+        GameManagerRef.GetComponent<GameManager>().AddEnemyToList(gameObject);
+    }
+    
+    void Update ()
+    {
+        // Face player
+        Vector3 direction = (PlayerRef.transform.position - transform.position).normalized;
+        direction.z = 0;
+        transform.up = direction;
+
+        // Move forward
+        float dist = Vector3.Distance(PlayerRef.transform.position, transform.position);
+        if (dist > 10f)
+        {
+            GetComponent<Rigidbody2D>().AddForce(transform.up * Speed * BaseSpeed * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Bullet")
+        {
+            // Lose Health
+            TakeDamage(col.gameObject.GetComponent<Bullet>().Attack);
+        }
+    }
+
+    void TakeDamage(float damageToTake)
+    {
+        CurrentHealth -= damageToTake;
+
+        if (CurrentHealth <= 0)
+        {
+            // Remove this gameobject from enemy list
+            GameManagerRef.GetComponent<GameManager>().RemoveEnemyFromList(gameObject);
+
+            // Destroy enemy
+            Destroy(gameObject);
+        }
+
+    }
 
     void GenerateStats()
     {
