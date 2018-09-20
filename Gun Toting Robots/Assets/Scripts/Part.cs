@@ -59,8 +59,10 @@ public class Part : MonoBehaviour {
     {
         if(Time.time > LastShootTime + ShootCooldown)
         {
-            GameObject Bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+            GameObject Bullet = Instantiate(BulletPrefab, transform.position, transform.rotation);
 
+            // Change the z to 1
+            Bullet.transform.position = new Vector3(transform.position.x, transform.position.y, 1f);
             Bullet.GetComponent<Bullet>().Attack = Attack;
             Bullet.GetComponent<Bullet>().Speed = BulletSpeed;
 

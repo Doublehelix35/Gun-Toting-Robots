@@ -61,6 +61,9 @@ public class Player : MonoBehaviour {
         }
 
         // Face mouse cursor
+        Vector3 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+        direction.z = 0;
+        transform.up = direction;
 
         // Shoot - Left Mouse
         if (Input.GetKey(KeyCode.Mouse0))
@@ -113,7 +116,6 @@ public class Player : MonoBehaviour {
         }
         CurrentHealth = currentHealth;
         GameManagerRef.GetComponent<GameManager>().UpdateHealthUI(CurrentHealth + " / " + MaxHealth);
-        Debug.Log(currentHealth + " " + MaxHealth);
     }
 
     float CalculateMaxHealth()
@@ -128,7 +130,6 @@ public class Player : MonoBehaviour {
                     if (PartObjects[i, j].GetComponent<Part>().partType == Part.PartTypes.Armour)
                     {
                         totalHealth += PartObjects[i, j].GetComponent<Part>().Health;
-                        Debug.Log("Max health added");
                     }
                 }
             }

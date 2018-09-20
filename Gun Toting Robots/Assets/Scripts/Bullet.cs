@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour {
 
     public float Attack = 1f;
     public float Speed = 1f;
-    float BaseSpeed = 20f;
+    float BaseSpeed = 2000f;
     float LifeSpan = 5f;
 
 	void Start ()
@@ -16,6 +16,6 @@ public class Bullet : MonoBehaviour {
 
 	void Update ()
     {
-        GetComponent<Rigidbody2D>().AddForce(transform.forward * Speed * BaseSpeed * Time.deltaTime);
+        GetComponent<Rigidbody2D>().AddForce(transform.up * Speed * BaseSpeed * Time.deltaTime);
     }
 }
