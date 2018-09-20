@@ -94,8 +94,9 @@ MonoBehaviour:
   Health: 5
   Attack: 1
   Speed: 1
-  ShootCooldown: 0
-  BulletSpeed: 0
+  ShootCooldown: 1
+  BulletSpeed: 1
+  Range: 20
 --- !u!212 &212372537868675804
 SpriteRenderer:
   m_ObjectHideFlags: 1

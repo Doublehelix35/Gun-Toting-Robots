@@ -1215,6 +1215,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114830177203394964, guid: 0491579b68160c746988c91b07d1fc4c,
+        type: 2}
+      propertyPath: BulletSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114830177203394964, guid: 0491579b68160c746988c91b07d1fc4c,
+        type: 2}
+      propertyPath: ShootCooldown
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0491579b68160c746988c91b07d1fc4c, type: 2}
   m_IsPrefabParent: 0

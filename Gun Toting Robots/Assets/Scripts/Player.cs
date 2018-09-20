@@ -115,7 +115,12 @@ public class Player : MonoBehaviour {
             }
         }
         CurrentHealth = currentHealth;
-        GameManagerRef.GetComponent<GameManager>().UpdateHealthUI(CurrentHealth + " / " + MaxHealth);
+        GameManagerRef.GetComponent<GameManager>().UpdateHealthUI(Mathf.Floor(CurrentHealth) + " / " + MaxHealth);
+
+        if(CurrentHealth <= 0)
+        {
+            GameManagerRef.GetComponent<GameManager>().GameOver();
+        }
     }
 
     float CalculateMaxHealth()

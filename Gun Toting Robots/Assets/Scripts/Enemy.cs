@@ -12,8 +12,9 @@ public class Enemy : MonoBehaviour {
     public float Attack = 1f;
     public float Speed = 1f;
     float BaseSpeed = 50f;
-    public float ShootCooldown;
-    public float BulletSpeed;
+    public float ShootCooldown = 1f;
+    public float BulletSpeed = 1f;
+    public float Range = 20f;
 
     float LastShootTime;
 
@@ -47,6 +48,23 @@ public class Enemy : MonoBehaviour {
         if (dist > 10f)
         {
             GetComponent<Rigidbody2D>().AddForce(transform.up * Speed * BaseSpeed * Time.deltaTime);
+        }
+
+        // Shoot
+        if(dist < Range) // Shoot if in range
+        {
+            if (Time.time > LastShootTime + ShootCooldown)
+            {
+                GameObject Bullet = Instantiate(BulletPrefab, transform.position, transform.rotation);
+
+                // Change the z to 1
+                Bullet.transform.position = new Vector3(transform.position.x, transform.position.y, 1f);
+                Bullet.GetComponent<Bullet>().Attack = Attack;
+                Bullet.GetComponent<Bullet>().Speed = BulletSpeed;
+
+                // Update Last shoot time
+                LastShootTime = Time.time;
+            }
         }
     }
 
