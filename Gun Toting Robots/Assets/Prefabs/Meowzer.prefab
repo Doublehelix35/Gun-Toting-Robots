@@ -91,13 +91,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 1414903743835010, guid: 3d35cc9d1343ae94fb24714f69143fe2,
     type: 2}
-  Health: 5
-  Attack: 1
+  Health: 50
+  Attack: 5
   Speed: 1
   ShootCooldown: 1
-  BulletSpeed: 1
-  Range: 20
-  GoldValue: 4
+  BulletSpeed: 0.5
+  Range: 10
+  GoldValue: 5
 --- !u!212 &212372537868675804
 SpriteRenderer:
   m_ObjectHideFlags: 1

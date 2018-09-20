@@ -14,8 +14,9 @@ public class Enemy : MonoBehaviour {
     float BaseSpeed = 50f;
     public float ShootCooldown = 1f;
     public float BulletSpeed = 1f;
-    public float Range = 20f;
+    public float Range = 10f;
     public int GoldValue = 4;
+    public float EnemyStatsIncrement = 1f;
 
     float LastShootTime;
 
@@ -95,8 +96,11 @@ public class Enemy : MonoBehaviour {
 
     void GenerateStats()
     {
+        Health *= EnemyStatsIncrement;
         Health = GausianModifier(Health);
+        Attack *= EnemyStatsIncrement;
         Attack = GausianModifier(Attack);
+        Speed *= EnemyStatsIncrement;
         Speed = GausianModifier(Speed);
         ShootCooldown = GausianModifier(ShootCooldown);
         BulletSpeed = GausianModifier(BulletSpeed);

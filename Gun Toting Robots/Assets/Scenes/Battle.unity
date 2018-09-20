@@ -1275,6 +1275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerRef: {fileID: 236781411}
+  LevelGeneratorRef: {fileID: 1245181519}
   GoldUI: {fileID: 858079683}
   NameUI: {fileID: 720728793}
   HealthUI: {fileID: 1958129155}
@@ -1307,6 +1308,9 @@ MonoBehaviour:
   MeowzerPrefab: {fileID: 1767389924051740, guid: 0491579b68160c746988c91b07d1fc4c,
     type: 2}
   SpawnRange: 20
+  SpawnRangeIncrement: 5
+  SpawnCount: 2
+  SpawnCountIncrement: 2
 --- !u!1 &1958129153
 GameObject:
   m_ObjectHideFlags: 0

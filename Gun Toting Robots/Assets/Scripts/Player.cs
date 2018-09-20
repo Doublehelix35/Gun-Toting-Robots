@@ -26,9 +26,6 @@ public class Player : MonoBehaviour {
     float MaxHealth;
     float CurrentHealth;
 
-    // Upgrade stats
-
-
 	void Start ()
     {
         GameManagerRef = GameObject.FindGameObjectWithTag("GameController");

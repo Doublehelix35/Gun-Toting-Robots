@@ -12,8 +12,15 @@ public class MainMenu : MonoBehaviour {
     public int MinGold = 30;
 
     public Text GoldUI;
-    public Text HealthUI;
 
+    // Moving object refs
+    public GameObject[] ObjectsToMove;
+    float SizeToScale = 0.2f;
+
+    // Rotating object refs
+    public GameObject[] ObjectsToRotate;
+    float RotateRange = 10f;
+    float RotateOffset = 5f;
 
     void Start ()
     {
@@ -21,15 +28,30 @@ public class MainMenu : MonoBehaviour {
 
         // Update gold ui text
         GoldUI.text = "" + Gold;
-
-        // Update health ui text
-
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+		for(int i = 0; i < ObjectsToMove.Length; i++)
+        {
+            Vector3 ScaledVec = new Vector3(Mathf.PingPong(Time.time / 6, SizeToScale) + 1f,
+                                        Mathf.PingPong(Time.time / 6, SizeToScale) + 1f,
+                                        0f);
+            ObjectsToMove[i].transform.localScale = ScaledVec;
+        }
+
+        for (int i = 0; i < ObjectsToRotate.Length; i++)
+        {
+            if(i % 2 == 0)
+            {
+                ObjectsToRotate[i].transform.localEulerAngles = new Vector3(0, 0, Mathf.PingPong(Time.time * 15, RotateRange) - RotateOffset);
+            }
+            else
+            {
+                ObjectsToRotate[i].transform.localEulerAngles = new Vector3(0, 0, -Mathf.PingPong(Time.time * 15, RotateRange) + RotateOffset);
+            }            
+        }
+    }
 
     public void PlayButton()
     {

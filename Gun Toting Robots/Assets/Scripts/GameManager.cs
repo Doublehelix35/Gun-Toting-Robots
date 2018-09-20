@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public GameObject PlayerRef;
+    public GameObject LevelGeneratorRef;
     List<GameObject> EnemyList = new List<GameObject>();
     public Text GoldUI;
     public Text NameUI;
@@ -28,7 +29,6 @@ public class GameManager : MonoBehaviour {
         GoldUI.text = "" + Gold;
         NameUI.text = RobotName;
         EnemyUI.text = "" + 0;
-
     }
 	
 	void Update ()
@@ -87,6 +87,11 @@ public class GameManager : MonoBehaviour {
 
             // Add gold
             UpdateGold(EnemyToRemove.GetComponent<Enemy>().GoldValue);
+        }
+
+        if(EnemyList.Count <= 0)
+        {
+            LevelGeneratorRef.GetComponent<LevelGenerator>().SpawnEnemies();
         }
     }
 

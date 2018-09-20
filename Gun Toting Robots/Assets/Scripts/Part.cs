@@ -26,11 +26,6 @@ public class Part : MonoBehaviour {
         PlayerRef = GameObject.FindGameObjectWithTag("Player");
 	}
 
-	void Update ()
-    {
-		
-	}
-
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Bullet")
