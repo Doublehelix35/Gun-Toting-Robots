@@ -97,6 +97,7 @@ MonoBehaviour:
   ShootCooldown: 1
   BulletSpeed: 1
   Range: 20
+  GoldValue: 4
 --- !u!212 &212372537868675804
 SpriteRenderer:
   m_ObjectHideFlags: 1

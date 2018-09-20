@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour {
 
     public float Attack = 1f;
     public float Speed = 1f;
-    float BaseSpeed = 2000f;
+    float BaseSpeed = 1500f;
     float LifeSpan = 5f;
 
 	void Start ()

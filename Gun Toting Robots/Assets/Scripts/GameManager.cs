@@ -84,6 +84,9 @@ public class GameManager : MonoBehaviour {
         {
             EnemyList.Remove(EnemyToRemove);
             EnemyUI.text = EnemyList.Count.ToString();
+
+            // Add gold
+            UpdateGold(EnemyToRemove.GetComponent<Enemy>().GoldValue);
         }
     }
 

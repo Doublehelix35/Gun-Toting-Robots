@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 0
   BulletPrefab: {fileID: 0}
-  Health: 5
+  Health: 8000
   Attack: 1
   ShootCooldown: 1
   BulletSpeed: 1

@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour {
     public float ShootCooldown = 1f;
     public float BulletSpeed = 1f;
     public float Range = 20f;
+    public int GoldValue = 4;
 
     float LastShootTime;
 
