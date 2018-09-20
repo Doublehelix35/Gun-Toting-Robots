@@ -6,61 +6,52 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class MainMenu : MonoBehaviour {
 
-    public GameObject PlayerRef;
+    int Gold = 0;
+    public int MinGold = 30;
+
     public Text GoldUI;
-    public Text NameUI;
 
-    // Values to be saved
-    public int Gold = 14;
-    string RobotName = "";
 
-    void Awake ()
+    void Start ()
     {
-        // Load data
         Load();
 
         // Update gold ui text
         GoldUI.text = "" + Gold;
-
-        // Update name ui text
-        NameUI.text = RobotName;
-
-        GameOver();
     }
 	
-	void Update ()
-    {
+	// Update is called once per frame
+	void Update () {
 		
 	}
 
-    public bool UpdateGold(int goldValueChange)
+    public void PlayButton()
     {
-        Gold += goldValueChange;
-
-        GoldUI.text = "" + Gold;
-
-        if (Gold < 0) // Reverese and throw error
-        {
-            Gold -= goldValueChange;
-
-            GoldUI.text = "" + Gold;
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        SceneManager.LoadScene("Creator");
     }
 
-    public void GameOver()
+    public void CreditsButton()
     {
-        // Save
+
+    }
+
+    public void ExitButton()
+    {
+        Application.Quit();
+    }
+
+    public void ResetSave()
+    {
+        // Override save
         Save();
 
-        // Load main menu
-        SceneManager.LoadScene("MainMenu");
+        // Load reset save
+        Load();
+
+        // Update gold ui text
+        GoldUI.text = "" + Gold;
     }
 
     // Saving
@@ -74,7 +65,7 @@ public class GameManager : MonoBehaviour {
         PlayerData data = new PlayerData();
 
         // Gold
-        data.GoldSave = Gold;
+        data.GoldSave = MinGold;
 
         // Level Difficulty
 
@@ -83,6 +74,7 @@ public class GameManager : MonoBehaviour {
         bf.Serialize(file, data);
         file.Close();
     }
+
 
     // Loading
     void Load()
@@ -100,20 +92,11 @@ public class GameManager : MonoBehaviour {
             // Load gold
             Gold = data.GoldSave;
 
-            // Load robot name
-            RobotName = data.RobotNameSave;
-
-            // Load robot composition
-            PlayerRef.GetComponent<Player>().SetRobotComposition(data.RobotObjectsSave);
-        }
-    }
-
-
-    public void DeleteSave()
-    {
-        if (File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
-        {
-            File.Delete(Application.persistentDataPath + "/playerInfo.dat");
+            // Check Player has more than minimum gold
+            if (Gold < MinGold)
+            {
+                Gold = MinGold;
+            }
         }
     }
 }

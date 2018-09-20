@@ -14,13 +14,18 @@ public class Creator : MonoBehaviour {
     public Text InputFieldRef;
     public Text GoldUI;
 
+    public int MinGold = 30;
+
 
     // Values to be saved
-    public int Gold = 14;
+    public int Gold = 30;
     string RobotName = "";
 
     void Start ()
     {
+        // Load data
+        Load();
+
         // Update gold ui text
         GoldUI.text = "" + Gold;
 
@@ -216,7 +221,34 @@ public class Creator : MonoBehaviour {
         bf.Serialize(file, data);
         file.Close();
     }
-    
+
+    // Loading
+    void Load()
+    {
+        if (File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
+        {
+            // Create a binary formatter and open the save file
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
+
+            // Create an object to store information from the file in and then close the file
+            PlayerData data = (PlayerData)bf.Deserialize(file);
+            file.Close();
+
+            // Load gold
+            Gold = data.GoldSave;
+
+            // Check Player has more than minimum gold
+            if(Gold < MinGold)
+            {
+                Gold = MinGold;
+            }
+
+            // Load level difficulty
+
+        }
+    }
+
     public void DeleteSave()
     {
         if (File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
@@ -224,6 +256,7 @@ public class Creator : MonoBehaviour {
             File.Delete(Application.persistentDataPath + "/playerInfo.dat");
         }
     }
+
 }
 
 [System.Serializable]

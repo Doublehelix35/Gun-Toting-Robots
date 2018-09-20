@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.5764706, g: 0.6392157, b: 0.9294118, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -529,7 +529,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.013127446, g: 0.5566038, b: 0.5566038, a: 0}
+  m_BackGroundColor: {r: 0.248309, g: 0.26432186, b: 0.5660378, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.740566, g: 0.7802698, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.56545925, g: 0.62986565, b: 0.9150943, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1811,8 +1811,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000071526, y: -24.699982}
-  m_SizeDelta: {x: 13.24, y: 12.32}
+  m_AnchoredPosition: {x: 0.99, y: -24.699982}
+  m_SizeDelta: {x: 15.22, y: 12.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1115094020
 MonoBehaviour:
@@ -2472,7 +2472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6004361, g: 0.66903824, b: 0.9716981, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2810,6 +2810,7 @@ MonoBehaviour:
   GridBottomLeftPos: {x: -7.5, y: -4.5, z: 0}
   InputFieldRef: {fileID: 600946440}
   GoldUI: {fileID: 1916402594}
+  MinGold: 30
   Gold: 30
 --- !u!1 &2049830614
 GameObject:
