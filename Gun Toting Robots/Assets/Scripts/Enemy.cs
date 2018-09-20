@@ -49,10 +49,10 @@ public class Enemy : MonoBehaviour {
         float NewValue = 0f;
         float randTotal = 0f;
 
-        // 10 random numbers from a range of 0 to 2
+        // 10 random numbers from a range of 0.1 to 3
         for(int i = 0; i < 10; i++)
         {
-            float rand = Random.Range(0f, 2f);
+            float rand = Random.Range(0.1f, 3f);
             randTotal += rand;
         }
 
