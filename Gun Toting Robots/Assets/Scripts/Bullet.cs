@@ -16,6 +16,6 @@ public class Bullet : MonoBehaviour {
 
 	void Update ()
     {
-        transform.Translate(Vector3.forward * Speed * BaseSpeed * Time.deltaTime);
-	}
+        GetComponent<Rigidbody2D>().AddForce(transform.forward * Speed * BaseSpeed * Time.deltaTime);
+    }
 }
