@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour {
     public int MinGold = 30;
 
     public Text GoldUI;
+    public Text HealthUI;
 
 
     void Start ()
@@ -20,6 +21,9 @@ public class MainMenu : MonoBehaviour {
 
         // Update gold ui text
         GoldUI.text = "" + Gold;
+
+        // Update health ui text
+
     }
 	
 	// Update is called once per frame

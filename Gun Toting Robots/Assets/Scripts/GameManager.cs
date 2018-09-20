@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     public GameObject PlayerRef;
     public Text GoldUI;
     public Text NameUI;
+    public Text HealthUI;
 
     // Values to be saved
     public int Gold = 14;
@@ -27,7 +28,6 @@ public class GameManager : MonoBehaviour {
         // Update name ui text
         NameUI.text = RobotName;
 
-        GameOver();
     }
 	
 	void Update ()
@@ -61,6 +61,11 @@ public class GameManager : MonoBehaviour {
 
         // Load main menu
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void UpdateHealthUI(string newUIText)
+    {
+        HealthUI.text = newUIText;
     }
 
     // Saving

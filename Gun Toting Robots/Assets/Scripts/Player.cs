@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    GameObject GameManagerRef;
     GameObject[,] PartObjects;
     float PartStartOffset = -4.5f; // Bottom left of grid of parts
     int[,] RobotComposition; // Formation of robot
@@ -30,7 +31,7 @@ public class Player : MonoBehaviour {
 
 	void Start ()
     {
-        
+        GameManagerRef = GameObject.FindGameObjectWithTag("GameController");
     }
 	
 	void Update ()
@@ -58,6 +59,15 @@ public class Player : MonoBehaviour {
         {
             GetComponent<Rigidbody2D>().AddForce(-transform.up * Speed * BaseSpeed * Time.deltaTime);
         }
+
+        // Face mouse cursor
+
+        // Shoot - Left Mouse
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            FireGuns();
+        }
+
     }
     void FixedUpdate()
     {
@@ -74,10 +84,12 @@ public class Player : MonoBehaviour {
         {
             for (int j = 0; j < 10; j++)
             {
-                if (PartObjects[i, j] == null || PartObjects[i, j].tag != "Part") { break; } // Break if no part found
-                if (PartObjects[i, j].GetComponent<Part>().partType == Part.PartTypes.Gun)
+                if (PartObjects[i, j].tag == "Part")
                 {
-                    PartObjects[i, j].GetComponent<Part>().ShootGun();
+                    if (PartObjects[i, j].GetComponent<Part>().partType == Part.PartTypes.Gun)
+                    {
+                        PartObjects[i, j].GetComponent<Part>().ShootGun();
+                    }
                 }
             }
         }
@@ -90,14 +102,18 @@ public class Player : MonoBehaviour {
         {
             for (int j = 0; j < 10; j++)
             {
-                if(PartObjects[i, j] == null || PartObjects[i, j].tag != "Part") { break; } // Break if no part found
-                if (PartObjects[i, j].GetComponent<Part>().partType == Part.PartTypes.Armour)
+                if (PartObjects[i, j].tag == "Part")
                 {
-                    currentHealth += PartObjects[i, j].GetComponent<Part>().CurrentHealth;
+                    if (PartObjects[i, j].GetComponent<Part>().partType == Part.PartTypes.Armour)
+                    {
+                        currentHealth += PartObjects[i, j].GetComponent<Part>().CurrentHealth;
+                    }
                 }
             }
         }
         CurrentHealth = currentHealth;
+        GameManagerRef.GetComponent<GameManager>().UpdateHealthUI(CurrentHealth + " / " + MaxHealth);
+        Debug.Log(currentHealth + " " + MaxHealth);
     }
 
     float CalculateMaxHealth()
@@ -107,10 +123,13 @@ public class Player : MonoBehaviour {
         {
             for (int j = 0; j < 10; j++)
             {
-                if (PartObjects[i, j] == null || PartObjects[i, j].tag != "Part") { break; } // Break if no part found
-                if (PartObjects[i, j].GetComponent<Part>().partType == Part.PartTypes.Armour)
+                if (PartObjects[i, j].tag == "Part")
                 {
-                    totalHealth += PartObjects[i, j].GetComponent<Part>().Health;
+                    if (PartObjects[i, j].GetComponent<Part>().partType == Part.PartTypes.Armour)
+                    {
+                        totalHealth += PartObjects[i, j].GetComponent<Part>().Health;
+                        Debug.Log("Max health added");
+                    }
                 }
             }
         }

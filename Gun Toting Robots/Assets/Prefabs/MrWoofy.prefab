@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 95180677543310742}
   - component: {fileID: 61531748184216606}
   - component: {fileID: 114645894869380486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MrWoofy
   m_TagString: Part
   m_Icon: {fileID: 0}
@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partType: 1
-  BulletPrefab: {fileID: 0}
+  BulletPrefab: {fileID: 1589027992521008, guid: e2009c8da69061848a02eaf90ca66975,
+    type: 2}
   Health: 5
   Attack: 1
   ShootCooldown: 1

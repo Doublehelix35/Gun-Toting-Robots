@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 95347410698441904}
   - component: {fileID: 61033629434914000}
   - component: {fileID: 114885095014970032}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armour_MK4
   m_TagString: Part
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fdefe8eeb1d5f42a0af92a1d462d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partType: 1
+  partType: 0
   BulletPrefab: {fileID: 0}
   Health: 5
   Attack: 1
