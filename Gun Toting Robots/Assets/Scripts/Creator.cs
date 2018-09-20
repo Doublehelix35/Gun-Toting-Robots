@@ -12,6 +12,7 @@ public class Creator : MonoBehaviour {
     private GameObject[,] GridObjects;
     public Vector3 GridBottomLeftPos;
     public Text InputFieldRef;
+    public Text GoldUI;
 
 
     // Values to be saved
@@ -20,6 +21,9 @@ public class Creator : MonoBehaviour {
 
     void Start ()
     {
+        // Update gold ui text
+        GoldUI.text = "" + Gold;
+
         // Init Grid objects
         GridObjects = new GameObject[10, 10];
         for(int i = 0; i < 10; i++)
@@ -119,6 +123,25 @@ public class Creator : MonoBehaviour {
         return false;
     }
 
+    public bool UpdateGold(int goldValueChange)
+    {
+        Gold += goldValueChange;
+
+        GoldUI.text = "" + Gold;
+
+        if(Gold < 0) // Reverese and throw error
+        {
+            Gold -= goldValueChange;
+
+            GoldUI.text = "" + Gold;
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     public void BattleButton()
     {
         // Set the robot name
@@ -149,6 +172,8 @@ public class Creator : MonoBehaviour {
         data.RobotNameSave = RobotName;
 
         // Robot composition
+        data.RobotObjectsSave = new int[10, 10];
+
         for (int i = 0; i < 10; i++)
         {
             for (int j = 0; j < 10; j++)
@@ -183,6 +208,7 @@ public class Creator : MonoBehaviour {
                         data.RobotObjectsSave[i, j] = 0;
                         break;
                 }
+                //Debug.Log(data.RobotObjectsSave[i, j]);
             }
         }
 

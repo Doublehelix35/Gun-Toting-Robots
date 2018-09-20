@@ -727,6 +727,7 @@ MonoBehaviour:
   CreatorRef: {fileID: 2047281322}
   PrefabToSpawn: {fileID: 1723544092040006, guid: 85178a8afa03d5a44b978351f1cacd4d,
     type: 2}
+  GoldCost: 16
 --- !u!1 &286976375
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +886,7 @@ MonoBehaviour:
   CreatorRef: {fileID: 2047281322}
   PrefabToSpawn: {fileID: 1396014413285626, guid: 391925548f382354db267b12bad510c1,
     type: 2}
+  GoldCost: 128
 --- !u!1 &421259253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,6 +1143,7 @@ MonoBehaviour:
   CreatorRef: {fileID: 2047281322}
   PrefabToSpawn: {fileID: 1517862496104420, guid: c8b9905d4a9b58444a06c9042cac178a,
     type: 2}
+  GoldCost: 256
 --- !u!1 &712480220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,6 +1390,7 @@ MonoBehaviour:
   CreatorRef: {fileID: 2047281322}
   PrefabToSpawn: {fileID: 1668725256651830, guid: 89e9654f50847574ba486b731a92f619,
     type: 2}
+  GoldCost: 32
 --- !u!1 &794762489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,6 +1619,7 @@ MonoBehaviour:
   CreatorRef: {fileID: 2047281322}
   PrefabToSpawn: {fileID: 1837842187154730, guid: ce670ee77797c2647bb14bd48cb4f869,
     type: 2}
+  GoldCost: 8
 --- !u!1 &1005272011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,6 +1704,7 @@ MonoBehaviour:
   CreatorRef: {fileID: 2047281322}
   PrefabToSpawn: {fileID: 1036207354962292, guid: 3eae5d20a6c9a1543a995552226a88de,
     type: 2}
+  GoldCost: 4
 --- !u!1 &1034700166
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,7 +2446,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1890774944}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2047281327}
+        m_MethodName: BattleButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1890774944
@@ -2791,6 +2808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GridBottomLeftPos: {x: -7.5, y: -4.5, z: 0}
+  InputFieldRef: {fileID: 600946440}
+  GoldUI: {fileID: 1916402594}
   Gold: 30
 --- !u!1 &2049830614
 GameObject:
@@ -2876,6 +2895,7 @@ MonoBehaviour:
   CreatorRef: {fileID: 2047281322}
   PrefabToSpawn: {fileID: 1140239550558064, guid: 98bed83e7eafc6a4aac44cab55df62fc,
     type: 2}
+  GoldCost: 2
 --- !u!1 &2128300924
 GameObject:
   m_ObjectHideFlags: 0
@@ -2960,6 +2980,7 @@ MonoBehaviour:
   CreatorRef: {fileID: 2047281322}
   PrefabToSpawn: {fileID: 1028916607374650, guid: 0ee480a524248e44e9ee421b9b8b17cc,
     type: 2}
+  GoldCost: 64
 --- !u!1 &2135044450
 GameObject:
   m_ObjectHideFlags: 0
