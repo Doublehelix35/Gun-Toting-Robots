@@ -20,7 +20,7 @@ public class Player : MonoBehaviour {
     public GameObject MrWoofyPrefab;
 
     // Stats
-    public float Speed = 1f;
+    public float Speed = 2f;
     float BaseSpeed = 100f;
     float TurnSpeed = 1f;
     float MaxHealth;
@@ -66,6 +66,12 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.Mouse0))
         {
             FireGuns();
+        }
+
+        // Forfeit
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManagerRef.GetComponent<GameManager>().GameOver();
         }
 
     }

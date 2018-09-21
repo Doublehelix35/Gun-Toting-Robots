@@ -713,7 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2451d78a1935b14aa0445fbb63c98d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinGold: 30
+  MinGold: 50
   GoldUI: {fileID: 299939862}
   ObjectsToMove:
   - {fileID: 1065926588}

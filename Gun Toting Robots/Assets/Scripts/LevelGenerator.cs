@@ -7,8 +7,7 @@ public class LevelGenerator : MonoBehaviour {
     // Prefabs
     public GameObject MeowzerPrefab;
 
-    public float SpawnRange = 20f;
-    public float SpawnRangeIncrement = 5f;
+    public float SpawnRange = 30f;
     public int SpawnCount = 2;
     public int SpawnCountIncrement = 2;
     public float StatsIncrement = 1.1f;
@@ -25,12 +24,9 @@ public class LevelGenerator : MonoBehaviour {
 
         for(int i = 0; i < SpawnCount; i++)
         {
-            GameObject Enemy = Instantiate(MeowzerPrefab, new Vector3(randX, randY, 0f), Quaternion.identity);
+            GameObject Enemy = Instantiate(MeowzerPrefab, new Vector3(transform.position.x + randX, transform.position.y + randY, 0f), Quaternion.identity);
             Enemy.GetComponent<Enemy>().EnemyStatsIncrement = StatsIncrement;
         }
-
-        // Increase Spawn Range
-        SpawnRange += SpawnRangeIncrement;
 
         // Increase Spawn Count
         SpawnCount += SpawnCountIncrement;

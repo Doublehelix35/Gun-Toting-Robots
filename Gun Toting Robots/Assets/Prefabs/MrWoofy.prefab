@@ -100,8 +100,8 @@ MonoBehaviour:
   partType: 1
   BulletPrefab: {fileID: 1589027992521008, guid: e2009c8da69061848a02eaf90ca66975,
     type: 2}
-  Health: 100
-  Attack: 2200
+  Health: 400
+  Attack: 2000
   ShootCooldown: 3
   BulletSpeed: 6
 --- !u!212 &212343458737593764

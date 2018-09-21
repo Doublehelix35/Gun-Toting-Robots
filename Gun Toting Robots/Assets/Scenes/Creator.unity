@@ -2906,8 +2906,8 @@ MonoBehaviour:
   GridBottomLeftPos: {x: -7.5, y: -4.5, z: 0}
   InputFieldRef: {fileID: 600946440}
   GoldUI: {fileID: 1916402594}
-  MinGold: 30
-  Gold: 30
+  MinGold: 50
+  Gold: 50
 --- !u!1 &2049830614
 GameObject:
   m_ObjectHideFlags: 0
